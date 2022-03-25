@@ -4,10 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask = "*"
-flask-migrate = "*"
+flask = "2.0.*"
+flask-migrate = "3.1.*"
 flask-sqlalchemy = "*"
-python-decouple = "*"
+python-decouple = "3.5"
 psycopg2 = "*"
 gunicorn = "*"
 

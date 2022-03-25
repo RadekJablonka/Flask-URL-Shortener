@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from core.models import ShortUrls
 from core import app, db
 from random import choice
@@ -16,6 +16,7 @@ def index():
     if request.method == 'POST':
         url = request.form['url']
         short_id = request.form['custom_id']
+        expiration_date = request.form['expiration_date']
 
         if short_id and ShortUrls.query.filter_by(short_id=short_id).first() is not None:
             flash('Please enter different custom id!')
@@ -25,11 +26,19 @@ def index():
             flash('The URL is required!')
             return redirect(url_for('index'))
 
+        if len(expiration_date)>0:
+            try:
+                int(expiration_date)
+            except ValueError:
+                flash('Please enter the expiration time in minutes')
+                return redirect(url_for('index'))
+
         if not short_id:
             short_id = generate_short_id(8)
 
+        expiration_in_minutes = int(expiration_date) if expiration_date else 15
         new_link = ShortUrls(
-            original_url=url, short_id=short_id, created_at=datetime.now())
+            original_url=url, short_id=short_id, created_at=datetime.now(), expiration_date=datetime.now() + timedelta(minutes=expiration_in_minutes))
         db.session.add(new_link)
         db.session.commit()
         short_url = request.host_url + short_id
@@ -42,7 +51,10 @@ def index():
 @app.route('/<short_id>')
 def redirect_url(short_id):
     link = ShortUrls.query.filter_by(short_id=short_id).first()
-    if link:
+    if link and link.expiration_date < datetime.now():
+        flash(f'Custom short id {short_id} has expired')
+        return redirect(url_for('index'))
+    elif link:
         return redirect(link.original_url)
     else:
         flash('Invalid URL')
