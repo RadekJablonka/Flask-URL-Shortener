@@ -1,26 +1,19 @@
 # Flask URL Shortener
 
-Flask URL shortener is a tool that takes any URL and generates a shorter, more readable version like bit.ly.
+Flask URL shortener is a project forked from https://github.com/ashutoshkrris/Flask-URL-Shortener/ and adjusted for the recruitment purposeses.
 
-Checkout the website: [https://shorty-flask.herokuapp.com/](https://shorty-flask.herokuapp.com/)
+Project is platform independent, but works currently in Azure.
 
-### Demo Video
+You can have a look on the website: [https://tinyurlz.azurewebsites.net/](http://tinyurlz.azurewebsites.net/)
 
-Watch on YouTube: [https://www.youtube.com/watch?v=g6chXThUReU](https://www.youtube.com/watch?v=g6chXThUReU)
+### Added
 
-### Tutorials
+Extra field with expiration time of an alias link
 
-* On iRead: [https://ireadblog.com/posts/140/how-to-create-a-url-shortener-using-flask](https://ireadblog.com/posts/140/how-to-create-a-url-shortener-using-flask)
-* On freeCodeCamp: [https://www.freecodecamp.org/news/python-tutorial-how-to-create-a-url-shortener-using-flask/](https://www.freecodecamp.org/news/python-tutorial-how-to-create-a-url-shortener-using-flask/)
-* On Personal Blog: [https://ashutoshkrris.hashnode.dev/how-to-create-a-url-shortener-using-flask](https://ashutoshkrris.hashnode.dev/how-to-create-a-url-shortener-using-flask)
+Custom logic catching user related input errors
 
-`.env` file contents:
+Code linted with black
 
-```
-SECRET_KEY=verysecretkey
-DATABASE_URL=sqlite:///shorty.db
-APP_SETTINGS=config.DevelopmentConfig
-FLASK_APP=core
-```
+requirements.txt added for azure deployment purposes
 
 While deploying the app, make sure you change the `APP_SETTINGS` to `config.ProductionConfig`.
