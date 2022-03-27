@@ -1,6 +1,6 @@
 # Flask URL Shortener
 
-Flask URL shortener is a project forked from https://github.com/ashutoshkrris/Flask-URL-Shortener/ and adjustment for the recruitment purposeses.
+Flask URL shortener is a project forked from https://github.com/ashutoshkrris/Flask-URL-Shortener/ and adjusted for the recruitment purposeses.
 
 Project is platform independent, but works currently in Azure.
 
@@ -8,9 +8,9 @@ Checkout the website: http://tinyurlz.azurewebsites.net/](http://tinyurlz.azurew
 
 ### Added
 
-Extra field with expiration time
+Extra field with expiration time of an alias link
 
-Custom logic catching user related input
+Custom logic catching user related input errors
 
 Code linted with black
 
