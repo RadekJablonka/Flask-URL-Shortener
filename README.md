@@ -4,7 +4,6 @@ Flask URL shortener is a project forked from https://github.com/ashutoshkrris/Fl
 
 Project is platform independent, but works currently in Azure.
 
-You can have a look on the website: [https://tinyurlz.azurewebsites.net/](http://tinyurlz.azurewebsites.net/)
 
 ### Added
 
