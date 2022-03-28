@@ -16,4 +16,10 @@ Code linted with black
 
 requirements.txt added for azure deployment purposes
 
-While deploying the app, make sure you change the `APP_SETTINGS` to `config.ProductionConfig`.
+### Development
+
+pipenv install
+
+pipenv shell
+
+python .\tiny_url_startup.py

@@ -30,7 +30,7 @@ def index():
             return redirect(url_for("index"))
 
         if not url or not bool(validators.url(url)):
-            flash("The valid URL is required!")
+            flash("Valid URL is required!")
             return redirect(url_for("index"))
 
         if len(expiration_date) > 0:
@@ -68,5 +68,4 @@ def redirect_url(short_id):
     elif link:
         return redirect(link.original_url)
     else:
-        flash("Invalid URL")
         return redirect(url_for("index"))
