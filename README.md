@@ -2,8 +2,6 @@
 
 Flask URL shortener is a project forked from https://github.com/ashutoshkrris/Flask-URL-Shortener/ and adjusted for the recruitment purposeses.
 
-Project is platform independent, but works currently in Azure.
-
 
 ### Added
 
