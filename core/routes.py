@@ -14,19 +14,6 @@ def generate_short_id(num_of_chars: int):
     )
 
 
-def check_expiration_date_valid(expiration_date):
-    if len(expiration_date) > 0:
-        try:
-            int(expiration_date)
-        except ValueError:
-            flash("Please enter the expiration time in minutes")
-            return redirect(url_for("index"))
-
-    if int(expiration_date) <= 0:
-        flash("Expiration time should be greater than zero")
-        return redirect(url_for("index"))
-
-
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
@@ -46,7 +33,16 @@ def index():
             flash("Valid URL is required!")
             return redirect(url_for("index"))
 
-        check_expiration_date_valid(expiration_date)
+        if len(expiration_date) > 0:
+            try:
+                int(expiration_date)
+            except ValueError:
+                flash("Please enter the expiration time in minutes")
+                return redirect(url_for("index"))
+
+        if int(expiration_date) <= 0:
+            flash("Expiration time should be greater than zero")
+            return redirect(url_for("index"))
 
         if not short_id:
             short_id = generate_short_id(8)
